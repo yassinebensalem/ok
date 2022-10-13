@@ -1,9 +1,19 @@
 pipeline {
-    agent any
-    stages {
-        stage('build') {
-            steps {
-                bat 'whoami'
+    agent tout
+    étapes {
+        stage ('--- nettoyer ---') {
+            pas {
+                sh "mvn clean"
+            }
+        }
+        stage ('- test--') {
+            pas {
+                sh "test mvn"
+            }
+        }
+        stage ('- package--') {
+            pas {
+                sh "package mvn"
             }
         }
     }
